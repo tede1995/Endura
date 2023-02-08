@@ -1,0 +1,491 @@
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Endura</title>
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/fund_chart.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/performance_chart.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/report_carousel.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/calendar.css' %}" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+
+  </head>
+  <body>
+
+
+    <!-- header -->
+    <header class="header-sticky header-dark">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="../../index.html">
+            <img class="navbar-logo navbar-logo-light" src="https://res.cloudinary.com/cloud-equity/image/upload/v1675595527/Fund_Management%20Site/Demo_Logo_cca28o.png" alt="Logo">
+            <img class="navbar-logo navbar-logo-dark" src="https://res.cloudinary.com/cloud-equity/image/upload/v1675595774/Fund_Management%20Site/Demo_Logo_Dark_hxsntl.png" alt="Logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="burger"><span></span></span></button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav align-items-center mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" role="button">
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+              </li>
+              <li class="nav-item dropdown dropdown-mega">
+              </li>
+            </ul>
+
+            <ul class="navbar-nav align-items-center mr-0">
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i data-feather="compass" class="nav-dropdown-icon-light"></i>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#home">Home</a>
+                    <a class="dropdown-item" href="#performance">Performance</a>
+                    <a class="dropdown-item" href="#projects">Projects</a>
+                    <a class="dropdown-item" href="#detail">Overview</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#contact">Contact</a>
+                  </div>
+                </li>
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- header -->
+
+
+    <!-- cover -->
+
+    <section id="home" class="p-0">
+        <div class="swiper-container text-white"
+            data-top-top="transform: translateY(0px);" 
+            data-top-bottom="transform: translateY(250px);">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide vh-100">
+                    <div class="image image-overlay image-zoom">
+                        <video autoplay muted loop id="bg_video" class="bg_video">
+                            <source src="https://res.cloudinary.com/cloud-equity/video/upload/v1675806853/Portfolio/video-5_sfgcfb.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="caption pb-8">
+                        <div class="container">
+                            <div class="row justify-content-between vh-75">
+                                <div class="col-md-10 align-self-end">
+                                    <h4 class="display-4 text-shadow" data-swiper-parallax="-100%">Our technology can accelerate your organisation's <b id="typed"></b></h4>
+                                    <div id="typed-strings">
+                                        <p>online market.</p>
+                                        <p>corporate identity.</p>
+                                        <p>web presence.</p>
+                                        <p>legitimacy.</p>
+                                    </div>
+                                    <a href="" class="btn btn-white btn-rounded px-5 mr-2">Find out more</a>
+                                    <a href="" class="btn btn-rounded btn-outline-orange">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-footer mb-5">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col text-center">
+                                <div class="mouse"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- / cover -->
+
+    <!-- categories -->
+
+        <section class="bg-dark" id="projects">
+            <div class="container">
+                
+                <div class="row text-white" data-aos="fade-left">
+                    <div class="col">
+                        <div class="owl-carousel owl-carousel-library visible owl-two" data-items="[3,2,1]" data-margin="30" data-nav="false">
+                          
+                            <article class="tile tile-long hover-frame">
+                                <div class="tile-image" style="background-image: url(https://res.cloudinary.com/cloud-equity/image/upload/v1675634913/Fund_Management%20Site/MLATBM_1-Sht_Art_Final_v5_LO_jxttp5.jpg)"></div>
+                                      <figcaption class="user-caption tooltipDisplay" style="display: none">
+                                          <div>
+                                            <h3>Example: The movie</h3>
+                                              <span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</span>
+                                          </div>
+                                      </figcaption>
+                            </article>
+    
+                            <article class="tile tile-long">
+                                <div class="tile-image" style="background-image: url(https://res.cloudinary.com/cloud-equity/image/upload/v1675634912/Fund_Management%20Site/81Y90lxADvL_ivlpji.jpg)"></div>
+                                  <figcaption class="user-caption">
+                                    <div class="tile-footer">
+                                        <h3></h3>
+                                        <span class="eyebrow"></span>
+                                    </div>
+                                  </figcaption>
+                            </article>
+                            <article class="tile tile-long">
+                                <div class="tile-image" style="background-image: url(https://res.cloudinary.com/cloud-equity/image/upload/v1675634912/Fund_Management%20Site/1131w-rLty9dwhGG4_ng4dme.webp)"></div>
+                                  <figcaption class="user-caption">
+                                    <div class="tile-footer">
+                                        <h3></h3>
+                                        <span class="eyebrow"></span>
+                                    </div>
+                                  </figcaption>
+                            </article>
+                            <article class="tile tile-long">
+                                <div class="tile-image" style="background-image: url(https://res.cloudinary.com/cloud-equity/image/upload/v1675635275/Fund_Management%20Site/tangerine_ht0lee.jpg)"></div>
+                                  <figcaption class="user-caption">
+                                    <div class="tile-footer">
+                                        <h3></h3>
+                                        <span class="eyebrow"></span>
+                                    </div>
+                                  </figcaption>
+                            </article>
+                            <article class="tile tile-long">
+                                <div class="tile-image" style="background-image: url(https://res.cloudinary.com/cloud-equity/image/upload/v1675635323/Fund_Management%20Site/7eb201102721345.5f759c4f92569_yppkhe.png)"></div>
+                                  <figcaption class="user-caption">
+                                    <div class="tile-footer">
+                                        <h3></h3>
+                                        <span class="eyebrow"></span>
+                                    </div>
+                                  </figcaption>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    <!-- / categories -->
+
+    <!-- case study carousel -->
+
+    <section class="bg-dark text-white">
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+            <h2>Our featured projects.</h2>
+            </div>
+            <div class="col-lg-6">
+            <p class="lead">Don't be shy. Try one of our expertly developed templates.</p>
+            </div>
+        </div>
+        </div>
+        <div class="container-fluid">
+        <div class="row" data-aos="fade-left">
+            <div class="col-12">
+            <div class="swiper-container swiper-container-carousel">
+                <div class="swiper-wrapper">
+                <div class="swiper-slide bg-dark">
+                    <div class="image image-gradient-horizontal-light" style="background-image:url(https://res.cloudinary.com/cloud-equity/image/upload/v1675804270/Portfolio/igor-miske-JVSgcV8_vb4-unsplash_fqik0f.jpg)"></div>
+                    <div class="caption">
+                    <div class="container">
+                        <div class="row align-items-end vh-75">
+                        <div class="col-md-5 text-white" data-aos="fade-up">
+                            <span class="eyebrow mb-2">Design</span>
+                            <h2>Design Journal Blog Template</h2>
+                            <a href="" class="btn btn-with-ico btn-outline-white mt-2">Read More <i class="icon-arrow-right2 fs-20"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide bg-dark">
+                    <div class="image image-gradient-horizontal-light" style="background-image:url(https://res.cloudinary.com/cloud-equity/image/upload/v1675804274/Portfolio/ilya-pavlov-OqtafYT5kTw-unsplash_1_duncbf.jpg)"></div>
+                    <div class="caption">
+                    <div class="container">
+                        <div class="row align-items-end vh-75">
+                        <div class="col-md-5 text-white" data-aos="fade-up">
+                            <span class="eyebrow mb-2">Design</span>
+                            <h2>Design Journal Blog Template</h2>
+                            <a href="" class="btn btn-with-ico btn-outline-white mt-2">Read More <i class="icon-arrow-right2 fs-20"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide bg-dark">
+                    <div class="image image-gradient-horizontal-light" style="background-image:url(https://res.cloudinary.com/cloud-equity/image/upload/v1675804270/Portfolio/igor-miske-JVSgcV8_vb4-unsplash_fqik0f.jpg)"></div>
+                    <div class="caption">
+                    <div class="container">
+                        <div class="row align-items-end vh-75">
+                        <div class="col-md-5 text-white" data-aos="fade-up">
+                            <span class="eyebrow mb-2">Design</span>
+                            <h2>Design Journal Blog Template</h2>
+                            <a href="" class="btn btn-with-ico btn-outline-white mt-2">Read More <i class="icon-arrow-right2 fs-20"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="container">
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- / case study carousel -->
+
+    <!-- Fund Breakdown -->
+
+    <section class="bg-dark text-white" id="detail">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <h2 class="fs-24 text-uppercase letter-spacing"><b>01.</b> asset overview</h2>
+          </div>
+          <div class="col-md-8" data-aos="fade-up">
+            <div class="row">
+              <div class="col-12">
+                <h4 class="progress-title">Cinema</h4>
+                <div class="progress-item">
+                  <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"><span>50%</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 mt-4">
+                <h4 class="progress-title">Television</h4>
+                <div class="progress-item">
+                  <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"><span>20%</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 mt-4">
+                <h4 class="progress-title">Theatre</h4>
+                <div class="progress-item">
+                  <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"><span>10%</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 mt-4">
+                <h4 class="progress-title">Creative Arts</h4>
+                <div class="progress-item">
+                  <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"><span>20%</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fund Breakdown -->
+
+    <!-- Partners -->
+
+    <section class="bg-dark text-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <h2 class="fs-24 text-uppercase letter-spacing"><b>02.</b> Partners</h2>
+        </div>
+        <div class="col-md-8 separated" data-aos="fade-up">
+          <div class="row">
+            <div class="col">
+              <div class="bordered separated">
+                <div class="row mb-0 align-items-center justify-content-between p-2 p-md-4">
+                  <div class="col-3 col-md-2 pb-2 pb-md-0">
+                    <div class="logo">
+                      <img src="https://res.cloudinary.com/cloud-equity/image/upload/v1675610919/Fund_Management%20Site/Disney__logo.svg_tlfji7.png" alt="Logo">
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <h5 class="mb-0">Senior Product Designer</h5>
+                    <span>Disney+</span>
+                  </div>
+                  <div class="col-md-4 text-md-right small">
+                    2017 - present
+                  </div>
+                </div>
+                <div class="row mb-0 align-items-center justify-content-between p-2 p-md-4">
+                  <div class="col-3 col-md-2 pb-2 pb-md-0">
+                    <div class="logo">
+                      <img src="https://res.cloudinary.com/cloud-equity/image/upload/v1675633848/Fund_Management%20Site/SeekPng.com_national-geographic-png_2842549_pc4bwf.png" alt="Logo">
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <h5 class="mb-0">Motion Designer</h5>
+                    <span>National Geographic</span>
+                  </div>
+                  <div class="col-md-4 text-md-right small">
+                    2016 - present
+                  </div>
+                </div>
+                <div class="row mb-0 align-items-center justify-content-between p-2 p-md-4">
+                  <div class="col-3 col-md-2 pb-2 pb-md-0">
+                    <div class="logo">
+                      <img src="https://res.cloudinary.com/cloud-equity/image/upload/v1675611074/Fund_Management%20Site/Netflix_2015_logo.svg_bljzck.png" alt="Logo">
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <h5 class="mb-0">Quality Assurance</h5>
+                    <span>Netflix</span>
+                  </div>
+                  <div class="col-md-4 text-md-right small">
+                    2014 - present
+                  </div>
+                </div>
+                <div class="row mb-0 align-items-center justify-content-between p-2 p-md-4">
+                  <div class="col-3 col-md-2 pb-2 pb-md-0">
+                    <div class="logo">
+                      <img src="https://res.cloudinary.com/cloud-equity/image/upload/v1675611146/Fund_Management%20Site/1600px-Roku_logo.svg_to7mhz.png" alt="Logo">
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <h5 class="mb-0">Art Director</h5>
+                    <span>Roku</span>
+                  </div>
+                  <div class="col-md-4 text-md-right small">
+                    2012 - present
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Partners -->
+
+<!-- Contact Form -->
+
+    <section class="bg-dark" id="contact">
+    </br>
+    </br>
+    </br>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+                <div class="tile-footer">
+                    <span class="eyebrow" style="color: #8A8A8A;">register your interest</span>
+                    <h3 style="color: #FFFFFF;">A representative will contact you shortly</h3>
+                </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <form>
+                <div class="form-row mb-1">
+                  <div class="col">
+                    <input type="text" class="form-control form-control-minimal" placeholder="Name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control form-control-minimal" placeholder="Mail">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control form-control-minimal" placeholder="Email">
+                  </div>
+                </div>
+                <div class="form-row mb-1">
+                  <div class="col">
+                    <textarea class="form-control form-control-minimal" id="exampleFormControlTextarea1" rows="3" placeholder="Your Message"></textarea>
+                  </div>
+                </div>
+                <div class="form-row mt-3">
+                  <div class="col">
+                    <button class="btn btn-sm btn-outline-white">Send Mail</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- / Contact Form -->
+
+    <!-- footer -->
+
+    <footer class="bg-dark text-white">
+      <div class="container pb-5">
+        <div class="row">
+          <div class="col">
+            <h2 class="h3">High Street 47, 1000 <br>Sydnety, Australia</h2>
+          </div>
+          <div class="col text-right">
+            <ul class="list-group list-group-minimal">
+              <li class="list-group-item social-icon"><a href=""><i data-feather="facebook"></i></a></li>
+              <li class="list-group-item social-icon"><a href=""><i data-feather="twitter"></i></a></li>
+              <li class="list-group-item social-icon"><a href=""><i data-feather="instagram"></i></a></li>
+              <li class="list-group-item social-icon"><a href=""><i data-feather="linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="separator-top">
+        <div class="container py-5">
+          <div class="row justify-content-between align-items-center">
+            <div class="col">
+              <img class="logo-sm" src="https://res.cloudinary.com/cloud-equity/image/upload/v1675595527/Fund_Management%20Site/Demo_Logo_cca28o.png" alt="Logo">
+            </div>
+            <div class="col col-lg-2">
+                <ul class="list-group list-group-minimal">
+                  <li class="list-group-item"><a href="">Performance</a></li>
+                  <li class="list-group-item"><a href="">Projects</a></li>
+                  <li class="list-group-item"><a href="">Overview</a></li>
+                  <li class="list-group-item"><a href="">Contact</a></li>
+                </ul>
+              </div>
+              <div class="col col-lg-2">
+                <ul class="list-group list-group-minimal">
+                  <li class="list-group-item"><a href="">Licence</a></li>
+                  <li class="list-group-item"><a href="">About Us</a></li>
+                  <li class="list-group-item"><a href="">Legal Information</a></li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- / footer -->
+
+
+    <script src="{% static 'js/vendor.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/fund_chart.js' %}"></script>
+    <script src="{% static 'js/performance_chart.js' %}"></script>
+    <script src="{% static 'js/report_carousel.js' %}"></script>
+    <script src="{% static 'js/hover_toggle.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        feather.replace()
+    </script>
+
+  </body>
+</html>
+{% endblock content %}
