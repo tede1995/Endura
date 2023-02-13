@@ -1,12 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,500,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600&display=swap');
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
 :root {
   --blue: #0030AE;
   --indigo: #6610f2;
@@ -2449,7 +2452,8 @@ input[type="button"].btn-block {
     position: relative;
     flex: 1 1 auto;
     width: 1%;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    color: #1E1E1E }
     .input-group > .form-control + .form-control,
     .input-group > .form-control + .custom-select,
     .input-group > .form-control + .custom-file,
@@ -8324,7 +8328,7 @@ button.bg-red:focus {
   background-color: #f20311 !important; }
 
 .bg-orange {
-  background-color: #F3A83C !important; }
+  background-color: #E8AB52 !important; }
 
 a.bg-orange:hover, a.bg-orange:focus,
 button.bg-orange:hover,
@@ -18025,6 +18029,7 @@ footer {
     display: block;
     background: rgba(0, 0, 0, 0.2); }
   .tile:hover .tile-image {
+    -webkit-filter: brightness(70%);
     -webkit-transform: scale(1.05);
     -moz-transform: scale(1.05);
     transform: scale(1.05); }
@@ -18094,6 +18099,24 @@ footer {
   display: block;
   margin-bottom: 1rem; }
 
+/* slightly transparent fallback */
+.backdrop-blur {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+}
+
+/* if backdrop support: very transparent and blurred */
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .backdrop-blur {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+  }
+}
+
 .tag-cloud {
   margin: -.25rem; }
   .tag-cloud a {
@@ -18137,7 +18160,8 @@ footer {
   .feed li:not(:last-child) {
     margin-bottom: 15px;
     padding-bottom: 15px;
-    border-bottom: 1px solid #e5e5e5; }
+    /* border-bottom: 1px solid #e5e5e5;*/ 
+}
 
 .feed-item {
   -webkit-transition: all 0.2s;
@@ -21396,6 +21420,28 @@ pre[class*="language-"] {
   height: 40px;
 }
 
+.article-social-icon {
+  stroke-width: 0.05rem;
+  margin: -.25rem; }
+  .article-social-icon a {
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    transition-delay: 0s;
+    float: left;
+    display: block;
+    margin: .25rem;
+    background: #e5e5e5;
+    padding: .5rem 1rem;
+    font-size: 0.875rem;
+    color: #151515;
+    border-radius: 10rem; }
+    .article-social-icon a:hover {
+      background: #4829B2;
+      color: #fff; }
+
 .info-icon {
   color: #fff;
   stroke-width: 0.05rem;
@@ -21423,6 +21469,12 @@ pre[class*="language-"] {
   margin-right: auto;
   margin-left: auto;
   padding-bottom: pb-5;
+ }
+
+ .technical-text {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 400;
+  color: #D0B479 !important;
  }
 
 /*# sourceMappingURL=style.css.map */

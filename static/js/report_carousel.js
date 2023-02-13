@@ -30,7 +30,7 @@ $(function() {
       margin: 10,
       dots: true,
       nav: false,
-      loop: false,
+      loop: true,
       responsive:{
         0:{
           dotsEach: 3,

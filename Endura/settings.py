@@ -33,12 +33,25 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Django Default Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third Party Apps.
+    'django_filters',
+    'rest_framework',
+    'taggit',
+    'debug_toolbar',
+    'ckeditor',
+    'ckeditor_uploader',
+    'crispy_forms',
+
+    # My apps.
+    'blog.apps.BlogConfig',
     'main',
 ]
 
@@ -50,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'Endura.urls'
@@ -129,3 +143,42 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Media files (User uploaded images)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Specifies the CSS Framework Crispy Forms should use.
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Account Settings
+LOGIN_URL = '/account/login/'
+LOGIN_REDIRECT_URL = '/author/dashboard/'
+LOGOUT_REDIRECT_URL = '/account/logout/'
+
+# Email Settings (Development)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# Email Settings (Production)
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.sendgrid.net'
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ""
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+
+# CKEditor Settings
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default':
+        {'toolbar': 'full',
+         'width': 'auto',
+         'extraPlugins': ','.join([
+             'codesnippet',
+             'youtube'
+         ]),
+         },
+}

@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+    <!-- Favicon-->
+    <link rel="icon" href="{% static 'blog/images/favicon.png' %}"
+          type="image/gif" sizes="16x16">
+
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Williano">
+    <meta name="keywords" content="Blog, Django-Blog, Django-app">
+
+    <!-- Title -->
+    <title>Endura | {% block title %}{% endblock title %}</title>
+
+    <!-- Stylesheets -->
+
+	{% block stylesheet %}
+
+    <!-- New CSS -->
+
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/report_carousel.css' %}" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/86753f2bac.css" crossorigin="anonymous">
+
+    <!-- / New CSS  -->
+
+    <!-- Font and Icons -->
+
+    <script src="https://kit.fontawesome.com/86753f2bac.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- / Font and Icons -->
+
+    <!-- Inherited Stylesheets -->
+
+    <link rel="stylesheet" href="{% static 'dashboard/author/css/prism.css' %}">
+    
+    <!-- / Inherited Stylesheets -->
+
+    {% endblock stylesheet %}
+
+</head>
+<body>
+
+    <!-- header -->
+    <header class="header-sticky header-light bg-white">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <img class="navbar-logo navbar-logo-light" src="https://res.cloudinary.com/cloud-equity/image/upload/v1675595527/Fund_Management%20Site/Demo_Logo_cca28o.png" alt="Logo">
+                    <img class="navbar-logo navbar-logo-dark" src="https://res.cloudinary.com/cloud-equity/image/upload/v1675595774/Fund_Management%20Site/Demo_Logo_Dark_hxsntl.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="burger"><span></span></span></button>
+      
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav align-items-center mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'blog:categories_list' %}"><!-- INSERT MENU ITEMS HERE --></a></li>
+                    </ul>
+      
+                    <ul class="navbar-nav align-items-center mr-0">
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Account
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% if request.user.is_authenticated %}
+                                <a class="dropdown-item" href="{% url 'blog:dashboard_home' %}">Dashboard</a>
+                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="#">My Articles</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'blog:logout' %}">Logout</a>
+                            {% else %}
+                                <a class="dropdown-item" href="{% url 'blog:login' %}">Login</a>
+                            {% endif %}
+                        </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- header -->
+
+   <!-- Messages -->
+    {% block messages %}
+
+       <div class="row">
+            <div class="col-md-12">
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    {% endblock messages %}
+
+    {% block content %}
+    {% endblock content %}
+    <!-- / Messages -->
+
+
+    <!-- footer -->
+
+    <footer class="bg-dark text-white">
+        <div class="separator-top">
+          <div class="container py-5">
+            <div class="row justify-content-between align-items-center">
+              <div class="col">
+                <img class="logo-sm" src="https://res.cloudinary.com/cloud-equity/image/upload/v1675595527/Fund_Management%20Site/Demo_Logo_cca28o.png" alt="Logo">
+              </div>
+              <div class="col col-lg-2">
+                  <ul class="list-group list-group-minimal">
+                    <li class="list-group-item"><a href="">Performance</a></li>
+                    <li class="list-group-item"><a href="">Projects</a></li>
+                    <li class="list-group-item"><a href="">Overview</a></li>
+                    <li class="list-group-item"><a href="">Contact</a></li>
+                  </ul>
+                </div>
+                <div class="col col-lg-2">
+                  <ul class="list-group list-group-minimal">
+                    <li class="list-group-item"><a href="">Licence</a></li>
+                    <li class="list-group-item"><a href="">About Us</a></li>
+                    <li class="list-group-item"><a href="">Legal Information</a></li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+  
+      <!-- / footer -->
+
+
+    <!-- SCRIPTS -->
+ {% block scripts %}
+
+    <!-- New JS -->
+
+    <script src="{% static 'js/vendor.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+
+    <script src="{% static 'js/report_carousel.js' %}"></script>
+    <script src="{% static 'js/hover_toggle.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        feather.replace()
+    </script>
+    <script src="{% static 'dashboard/author/src/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    <script src="{% static 'dashboard/author/js/prism.js' %}"></script>
+    
+
+ {% endblock scripts %}
+</body>
+</html>
