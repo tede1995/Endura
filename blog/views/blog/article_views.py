@@ -103,7 +103,7 @@ class TagArticlesListView(ListView):
         List articles related to a tag.
     """
     model = Article
-    paginate_by = 12
+    paginate_by = 6
     context_object_name = 'tag_articles_list'
     template_name = 'blog/article/tag_articles_list.html'
 
@@ -133,4 +133,5 @@ class TagArticlesListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.filter(approved=True)
+        context['tags'] = Article.tags.all()
         return context

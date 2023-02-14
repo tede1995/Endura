@@ -50,10 +50,10 @@
     {% endblock stylesheet %}
 
 </head>
-<body>
+<body class="bg-light">
 
     <!-- header -->
-    <header class="header-sticky header-light bg-white">
+    <header class="header-sticky header-light bg-light">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand" href="{% url 'index' %}">
@@ -92,7 +92,7 @@
     <!-- header -->
 
    <!-- Messages -->
-    {% block messages %}
+   <!-- {% block messages %}
 
        <div class="row">
             <div class="col-md-12">
@@ -108,7 +108,7 @@
                 {% endif %}
             </div>
         </div>
-    {% endblock messages %}
+    {% endblock messages %} -->
 
     {% block content %}
     {% endblock content %}

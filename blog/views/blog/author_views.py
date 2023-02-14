@@ -11,7 +11,7 @@ from blog.models.article_models import Article
 
 class AuthorArticlesListView(ListView):
     model = Article
-    paginate_by = 12
+    paginate_by = 6
     context_object_name = 'articles'
     template_name = 'blog/authors/author_articles.html'
 

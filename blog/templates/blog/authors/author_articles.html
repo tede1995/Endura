@@ -1,11 +1,187 @@
 {% extends 'blog/blog_base.html' %}
 
 {% block title %}
-    Author
+    {{ author.username }} Articles
 {% endblock title %}
 
 
 {% block content %}
+
+    <!-- Author -->
+
+    <section class="p-0">
+        <div class="image image-overlay image-cover" style="background-image:url({{ author.profile.banner_image.url }})"
+        data-top-top="transform: translateY(0px);" 
+        data-top-bottom="transform: translateY(-250px);"></div>
+        <div class="container">
+          <div class="row justify-content-center align-items-end vh-50 mb-5">
+            <div class="col col-md-10 col-lg-8">
+              <div class="row align-items-center">
+                <div class="col-4 col-lg-3">
+                  <img class="mr-3 avatar-rounded-profile" src="{{ author.profile.image.url }}" alt="">
+                </div>
+                <div class="col">
+                  <div class="row align-items-center">
+                    <div class="col-md-8">
+                      <h2 class="mb-0">{{ author.username }}</h2> 
+                      <span class="text-muted">{{ author.first_name }} {{ author.last_name }}</span>
+                    </div>
+                    <div class="col-md-4 text-left text-md-right">
+                      <button type="button" class="btn btn-rounded btn-ico btn-white" data-toggle="tooltip" data-placement="top" title="Profile"><i data-feather="user"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- / Author -->
+
+    <section class="bg-light p-0">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col col-md-10 col-lg-8">
+                <div class="nav mb-1">
+                    <a class="nav-item nav-link active">Author</a>
+                    <a class="nav-item nav-link" href="{% url 'blog:home' %}">Articles</a>
+                    <a class="nav-item nav-link" href="">Categories</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles -->
+    
+    <section class="bg-light pt-2">
+
+        <div class="container">
+            <div class="">
+    
+                <!-- tab info -->
+                <div class="tab-pane" role="tabpanel" aria-labelledby="demo-2-1">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 col-lg-8">
+                        
+                            <!-- stats -->
+                            <div class="row gutter-1 mb-2">
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <div class="equal">
+                                        <div class="boxed">
+                                            <div class="equal-header">
+                                                <b class="h2">89</b>
+                                            </div>
+                                            <div class="equal-footer">
+                                                <span class="text-muted">friends</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <div class="equal">
+                                        <div class="boxed">
+                                            <div class="equal-header">
+                                                <b class="h2">14</b>
+                                            </div>
+                                            <div class="equal-footer">
+                                                <span class="text-muted">likes</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <div class="equal">
+                                        <div class="boxed">
+                                            <div class="equal-header">
+                                                <b class="h2">9</b>
+                                            </div>
+                                            <div class="equal-footer">
+                                                <span class="text-muted">articles</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <div class="equal">
+                                        <div class="boxed">
+                                            <div class="equal-header">
+                                                <b class="h2">119</b>
+                                            </div>
+                                            <div class="equal-footer">
+                                                <span class="text-muted">following</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- / stats -->
+        
+                        <!-- post -->
+                        <div class="row mb-1">
+                            {% if articles %}
+                            <div class="col">
+                            {% for article in articles %}
+                                <article class="card mb-2">
+                                    <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col-6">
+                                        <div class="media align-items-center">
+                                            <img class="mr-2 avatar-rounded" src="{{ article.author.profile.image.url }}">
+                                            <div class="media-body">
+                                            <span class="mt-0">{{ author.username }}</span>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-6 text-right">
+                                        <small class="text-mute">
+                                            <span class="p-1">{{ article.date_published.date }}</span>
+                                        </small>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <span class="eyebrow text-muted pb-2">{{ article.category }}</span>
+                                        <a href="{{ article.get_absolute_url }}"><h3 class="fs-20 font-weight-normal">{{ article.title }}</h3></a>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-mute">
+                                            <span><i data-feather="clock"></i><span class="p-1">{{ article.read_time }} minute{{ article.read_time|pluralize }}</span></li></span>
+                                            <span><i data-feather="eye"></i><span class="p-1">{{ article.views }}</span></li></span>
+                                        </small>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="tag-cloud">
+                                            {% for tag in article.tags.all %}
+                                                <a href="{% url 'blog:tag_articles' tag_name=tag.name %}">{{ tag.name }}</a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </article>
+                            {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <!-- / post -->
+        
+                        </div>
+                    </div>
+                </div>
+                <!-- / tab -->
+    
+            </div>
+        </div>
+      </section>
+
+<!-- / Articles -->
+
+
+
+
+<!-- OLD CODE -->
+
+
     <div class="slider display-table center-text"
                  style="background-image: url({{ author.profile.banner_image.url }});
                     background-size: contain;

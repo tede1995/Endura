@@ -63,9 +63,9 @@
 							<div class="row align-items-center">
 								<div class="col-6">
 									<div class="media align-items-center">
-										<img class="avatar rounded mr-1" src="https://res.cloudinary.com/cloud-equity/image/upload/v1675883758/Portfolio/milad-fakurian-E8Ufcyxz514-unsplash_cn7ozs.jpg" alt="Image">
+										<img class="avatar-rounded mr-2" src="https://res.cloudinary.com/cloud-equity/image/upload/v1675883758/Portfolio/milad-fakurian-E8Ufcyxz514-unsplash_cn7ozs.jpg" alt="Image">
 										<div class="media-body">
-										<span class="mt-0">{{ article.author.username }}</span>
+											<a href="{% url 'blog:author_articles' article.author.username %}" class="mt-0">{{ article.author.username }}</a>
 										</div>
 									</div>
 								</div>

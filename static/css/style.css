@@ -17816,7 +17816,7 @@ footer {
 .avatar {
   border-radius: 0.25rem;
   width: 3.75rem;
-  height: 3.75rem; }
+  height: auto; }
   .avatar[class*="-sm"] {
     width: 2.5rem;
     height: auto; }
@@ -17824,8 +17824,32 @@ footer {
     width: 5rem;
     height: auto; }
   .avatar[class*="-xl"] {
-    width: 10rem;
+    width: 150px;
     height: auto; }
+
+.avatar-rounded {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+
+  background-image: url(https://res.cloudinary.com/cloud-equity/image/upload/v1675883758/Portfolio/milad-fakurian-E8Ufcyxz514-unsplash_cn7ozs.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.avatar-rounded-profile {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+
+  background-image: url(https://res.cloudinary.com/cloud-equity/image/upload/v1675883758/Portfolio/milad-fakurian-E8Ufcyxz514-unsplash_cn7ozs.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
 
 .user-grid {
   -webkit-user-select: none;
@@ -18268,6 +18292,13 @@ footer {
   border-color: rgba(255, 255, 255, 0.2); }
   .text-white .card-price .card-footer:hover {
     background-color: rgba(255, 255, 255, 0.2); }
+
+.boxed-dark {
+  background-color: #FFFFFF7F;
+  border-radius: 0.25rem;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  border: #fff;
+}
 
 .btn-blue {
   color: #fff;

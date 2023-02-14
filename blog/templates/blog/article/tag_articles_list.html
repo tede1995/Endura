@@ -1,139 +1,173 @@
 {% extends 'blog/blog_base.html' %}
 
 {% block title %}
- Tag Articles List
+    Tags
 {% endblock title %}
 
 {% block messages %}
 {% endblock messages %}
 
 {% block content %}
-    {% if categories %}
-    <div class="main-slider">
-		<div class="swiper-container position-static" data-slide-effect="slide" data-autoheight="false"
-			data-swiper-speed="500" data-swiper-autoplay="5000" data-swiper-margin="0" data-swiper-slides-per-view="4"
-			data-swiper-breakpoints="true" data-swiper-loop="true" >
-			<div class="swiper-wrapper">
-                {% for category in categories %}
-				<div class="swiper-slide">
-					<a class="slider-category" href="{{ category.get_absolute_url }}">
-						<div class="category-image">
-                            <img src="{{ category.image.url }}"
-                                 class="category-image"
-                                 width="352" height="235"
-                                 alt="Blog Image">
+
+    <!-- Tag -->
+
+    <section>
+        <div class="container bg-white">
+            <div class="image image-overlay image-cover" style="background-image:url({{ category.image.url }})"
+            data-top-top="transform: translateY(0px);" 
+            data-top-bottom="transform: translateY(-250px);"></div>
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-4">
+                    <h2 class="text-shadow">Find similar articles</h2>
+                </div>
+                <div class="col-md-7">
+                    <form class="input-group rounded" method="get" action="{% url 'blog:article_search_list_view' %}">
+                        <input type="text" class="form-control px-3 text-shadow" placeholder="Search Articles" aria-label="Search articles" name="q">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary btn-outline-info" type="submit">Search</button>
                         </div>
-
-						<div class="category">
-							<div class="display-table center-text">
-								<div class="display-table-cell">
-									<h3><b>{{ category.name }}</b></h3>
-								</div>
-							</div>
-						</div>
-					</a>
-				</div><!-- swiper-slide -->
-                {% endfor %}
-
-			</div><!-- swiper-wrapper -->
-		</div><!-- swiper-container -->
-
-	</div><!-- slider -->
-    {% else %}
-        <center><div class="alert alert-warning"><b>No Categories</b></div></center>
-    {% endif %}
-
-	<section class="blog-area section">
-		<div class="container">
-            <!-- Messages -->
-           <div class="row">
-            <div class="col-md-12">
-                {% if messages %}
-                    {% for message in messages %}
-                      <div class="text-center font-weight-bold alert
-                           {% if message.level_tag == 'error' %}
-                           alert-danger
-                           {% else %}
-                           alert-{{ message.tags }}
-                           {% endif %}">
-
-                        {{ message }}
-                      </div>
-                    {% endfor %}
-              {% endif %}
+                    </form>
+                </div>
             </div>
-          </div>
+        </div>
+    </section>
 
+    <!-- / Tag -->
 
-            <!-- Results -->
-            {% if tag_articles_list %}
-			<div class="row">
-                {% for article in tag_articles_list %}
-				<div class="col-lg-4 col-md-6">
-					<div class="card h-100">
-						<div class="single-post post-style-1">
+    <!-- Articles -->
+    
+    <section data-aos="fade-up">
+        <div class="container-fluid">
+            <div class="row">
 
-							<div class="blog-image">
-                                <img src="{{ article.image.url }}"
-                                     width="330" height="220"
-                                     alt="Blog Image"
-                                >
+                <!-- Articles Left -->
+
+                <div class="col-md-8">
+                    {% if tag_articles_list %}
+                    <ul class="masonry row gutter-2">
+                        {% for article in tag_articles_list %}
+                        <li class="col-md-6">
+                            <article class="tile">
+                                <div class="tile-image" style="background-image: url({{ article.image.url }})"></div>
+                                <a href="{{ article.get_absolute_url }}" class="tile-content">
+                                    <div class="tile-footer">
+                                        <span class="eyebrow mb-1">{{ article.category }}</span>
+                                        <h3>{{ article.title }}</h3>
+                                        <span><i data-feather="clock"></i><span class="p-2">{{ article.read_time }} minute{{ article.read_time|pluralize }}</span></span>
+                                        <span><i data-feather="eye"></i><span class="p-2">{{ article.views }}</span></span>
+                                        <span><i data-feather="message-circle"></i><span class="p-2">{{ article.comments.count }}</span></span>
+                                    </div>
+                                </a>
+                            </article>
+                        </li>
+                        {% endfor %}
+                        </li>
+                    </ul>
+                    {% else %}
+                    <!-- message -->
+                    <div class="row mb-1">
+                        <div class="col">
+                        <article class="card">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <div class="media align-items-center">
+                                            <div class="media-body">
+                                            <h4>No articles</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-							<a class="avatar" href="{% url 'blog:author_articles' article.author.username %}">
-                                <img src="{{ article.author.profile.image.url }}" alt="Profile Image"
-                                     class="profile-image">
-                            </a>
-
-							<div class="blog-info">
-
-								<h4 class="title"><a href="{{ article.get_absolute_url }}"><b>{{ article.title }}</b></a></h4>
-
-								<ul class="post-footer">
-									<li><a><i class="ion-ios-clock"></i>{{ article.read_time }} min{{ article.read_time|pluralize }} read</a></li>
-									<li><i class="ion-chatbubbles"></i>{{ article.comments.count }}</li>
-									<li><i class="ion-eye"></i>{{ article.views }}</li>
-								</ul>
-
-							</div><!-- article-info -->
-						</div><!-- single-post -->
-					</div><!-- card -->
-				</div><!-- col-lg-4 col-md-6 -->
-                {% endfor %}
-			</div><!-- row -->
-            {% endif %}
-                {# Pagination for article post #}
-            {% if is_paginated %}
-
-                {# Displays previous pages #}
-                {% if page_obj.has_previous %}
-                    <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
-                    <a class="btn btn-outline-info mb-4"
-                       href="?page={{ page_obj.previous_page_number }}">Previous
-                    </a>
-                {% endif %}
-
-                {# Displays current page #}
-                {% for num in page_obj.paginator.page_range %}
-                    {% if page_obj.number == num %}
-                        <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
-                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-                        <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                        </article>
+                        </div>
+                    </div>
+                  <!-- / message -->
                     {% endif %}
-                 {% endfor %}
+                </div> 
 
-                {# Displays next pages #}
-               {% if page_obj.has_next %}
-                    <a class="btn btn-outline-info mb-4"
-                       href="?page={{ page_obj.next_page_number }}">Next
-                    </a>
-                    <a class="btn btn-outline-info mb-4"
-                       href="?page={{ page_obj.paginator.num_pages }}">Last
-                    </a>
+                <!-- / Articles Left -->
+
+
+                <!-- Sidebar Right -->
+
+                <aside class="col-md-4 pl-md-4">
+                    {% if categories %}
+                    <div class="widget">
+                        <span class="widget-title">Categories</span>
+                        {% for category in categories %}
+                        <div class="list-group list-group-categories pb-1">
+                            <a href="{{ category.get_absolute_url }}" class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ category.name }}
+                                <span class="badge">{{ category.count }}</span>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% if articles %}
+                    <div class="widget">
+                        <span class="widget-title">Featured / {% if articles %}{{ category.name }}{% endif %}</span>
+                        <ul class="feed">
+                        {% for article in articles|slice:"4" %}
+                            <li>
+                                <a href="{{ article.get_absolute_url }}" class="feed-item">
+                                <img src="{{ article.image.url }}" alt="Image">
+                                <div class="feed-item-content">
+                                    <h3>{{ article.title }}</h3>
+                                </div>
+                                </a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    <div class="widget">
+                        <span class="widget-title">Tags</span>
+                        <div class="tag-cloud">
+                        {% for tag in tags|slice:"20" %}
+                            <a href="{% url 'blog:tag_articles' tag_name=tag.name %}">{{ tag.name }}</a>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- / Sidebar Right -->
+
+            </div>
+
+            {# Pagination for article post #}
+
+                {% if is_paginated %}
+                <div class="col text-center">
+                    {# Displays previous pages #}
+                    {% if page_obj.has_previous %}
+                        <a class="btn btn-outline-secondary text-black"
+                        href="?page={{ page_obj.previous_page_number }}"><i data-feather="arrow-left"></i>
+                        </a>
+                    {% endif %}
+
+                    {# Displays current page #}
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                            <a class="btn btn-outline-secondary text-black" href="?page={{ num }}">{{ num }}</a>
+                        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                            <a class="btn btn-outline-secondary text-black" href="?page={{ num }}">{{ num }}</a>
+                        {% endif %}
+                    {% endfor %}
+
+                    {# Displays next pages #}
+                    {% if page_obj.has_next %}
+                        <a class="btn btn-outline-secondary text-black"
+                        href="?page={{ page_obj.next_page_number }}"><i data-feather="arrow-right"></i>
+                        </a>
+                    {% endif %}
+
                 {% endif %}
+                </div>
+        </div>
+    </section>
 
-            {% endif %}
+<!-- / Articles -->
 
-		</div><!-- container -->
-	</section><!-- section -->
 {% endblock content %}
