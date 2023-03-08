@@ -19,17 +19,24 @@
     <h6 class="font-weight-bolder mb-0">Dashboard</h6>
 {% endblock breadcrumb %}
 
+<!-- modal content -->
+
+<div class="modalBar">
+    <div class="modalBar-logo">
+        <img src="https://acgoadit.sirv.com/endura/logo_UI_Light.svg" alt="logo">
+    </div>
+    <div class="modalBar-content">
+        🎉 Take advantage of the last deals of the year! Choose your favorite <b>Winter Bundle and save 80% OFF</b>❄️
+    </div>
+    <div class="modalBar-right">
+
+    </div>
+</div>
+
+<!-- / modal content -->
+
 {% block sidebar %}
 
-    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
-        <div class="sidenav-header">
-        <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html " target="_blank">
-            <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-1 font-weight-bold">Endura</span>
-        </a>
-        </div>
-        <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -138,11 +145,16 @@
             <a class="nav-link  " href="../pages/sign-in.html">
                 <div class="icon-shape shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.46447 15.4645C2.40215 14.5268 3.67392 14 5 14H12C13.3261 14 14.5979 14.5268 15.5355 15.4645C16.4732 16.4021 17 17.6739 17 19V21C17 21.5523 16.5523 22 16 22C15.4477 22 15 21.5523 15 21V19C15 18.2044 14.6839 17.4413 14.1213 16.8787C13.5587 16.3161 12.7956 16 12 16H5C4.20435 16 3.44129 16.3161 2.87868 16.8787C2.31607 17.4413 2 18.2044 2 19V21C2 21.5523 1.55228 22 1 22C0.447715 22 0 21.5523 0 21V19C0 17.6739 0.526784 16.4021 1.46447 15.4645Z" fill="black"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 4C6.84315 4 5.5 5.34315 5.5 7C5.5 8.65685 6.84315 10 8.5 10C10.1569 10 11.5 8.65685 11.5 7C11.5 5.34315 10.1569 4 8.5 4ZM3.5 7C3.5 4.23858 5.73858 2 8.5 2C11.2614 2 13.5 4.23858 13.5 7C13.5 9.76142 11.2614 12 8.5 12C5.73858 12 3.5 9.76142 3.5 7Z" fill="black"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 7C20.5523 7 21 7.44772 21 8V14C21 14.5523 20.5523 15 20 15C19.4477 15 19 14.5523 19 14V8C19 7.44772 19.4477 7 20 7Z" fill="black"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16 11C16 10.4477 16.4477 10 17 10H23C23.5523 10 24 10.4477 24 11C24 11.5523 23.5523 12 23 12H17C16.4477 12 16 11.5523 16 11Z" fill="black"/>
-                    </svg>    
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 13C4.55228 13 5 13.4477 5 14V21C5 21.5523 4.55228 22 4 22C3.44772 22 3 21.5523 3 21V14C3 13.4477 3.44772 13 4 13Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 2C4.55228 2 5 2.44772 5 3V10C5 10.5523 4.55228 11 4 11C3.44772 11 3 10.5523 3 10V3C3 2.44772 3.44772 2 4 2Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 11C12.5523 11 13 11.4477 13 12V21C13 21.5523 12.5523 22 12 22C11.4477 22 11 21.5523 11 21V12C11 11.4477 11.4477 11 12 11Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C12.5523 2 13 2.44772 13 3V8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8V3C11 2.44772 11.4477 2 12 2Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 15C20.5523 15 21 15.4477 21 16V21C21 21.5523 20.5523 22 20 22C19.4477 22 19 21.5523 19 21V16C19 15.4477 19.4477 15 20 15Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 2C20.5523 2 21 2.44772 21 3V12C21 12.5523 20.5523 13 20 13C19.4477 13 19 12.5523 19 12V3C19 2.44772 19.4477 2 20 2Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 14C0 13.4477 0.447715 13 1 13H7C7.55228 13 8 13.4477 8 14C8 14.5523 7.55228 15 7 15H1C0.447715 15 0 14.5523 0 14Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 8C8 7.44772 8.44772 7 9 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H9C8.44772 9 8 8.55228 8 8Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16 16C16 15.4477 16.4477 15 17 15H23C23.5523 15 24 15.4477 24 16C24 16.5523 23.5523 17 23 17H17C16.4477 17 16 16.5523 16 16Z" fill="black"/>
+                    </svg>                        
                 </div>
                 <span class="nav-link-text ms-1">Edit Profile</span>
             </a>
@@ -160,23 +172,6 @@
             </li>
         </ul>
         </div>
-        <div class="sidenav-footer mx-3 ">
-        <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
-            <div class="full-background" style="background-image: url('../assets/img/curved-images/white-curved.jpg')"></div>
-            <div class="card-body text-start p-3 w-100">
-            <div class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
-                <i class="ni ni-diamond text-dark text-gradient text-lg top-0" aria-hidden="true" id="sidenavCardIcon"></i>
-            </div>
-            <div class="docs-info">
-                <h6 class="text-white up mb-0">Need help?</h6>
-                <p class="text-xs font-weight-bold">Please check our docs</p>
-                <a href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard" target="_blank" class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
-            </div>
-            </div>
-        </div>
-        <a class="btn bg-gradient-primary mt-3 w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard-pro?ref=sidebarfree">Upgrade to pro</a>
-        </div>
-    </aside>
 
 {% endblock sidebar %}
 
@@ -274,11 +269,7 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Notification -->
-
-        <!-- / Notification -->
-
+          
         <!-- Content Row -->
 
         <div class="pt-4 pb-2">
@@ -286,7 +277,7 @@
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
-                            <h6>Published content</h6>
+                            <h6>Your Activity</h6>
                         </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
@@ -313,7 +304,7 @@
                                             <img src="{{ article.image.url }}" class="avatar content_img-sm me-3" alt="user1">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">{{ article.title }}</h6>
+                                            <a href="{% url 'blog:dashboard_article_detail' slug=article.slug %}"><h6 class="mb-0 text-sm">{{ article.title }}</h6></a>
                                             <p class="text-xs text-secondary mb-0">{{ article.category }}</p>
                                             </div>
                                         </div>
@@ -345,9 +336,24 @@
                                         </a>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <a data-toggle="modal" data-target="#deleteModal" href="javascript:void(0)" class="badge badge-sm bg-danger">Delete</a>
+                                            <a type="button" class="badge badge-sm bg-danger" data-bs-toggle="modal" data-bs-target="#myModal">Delete</a>
                                         </td>
                                     </tr>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h6 class="mb-0 text-sm" id="exampleModalLabel">Delete this article?</h6>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="text-sm">Don't stress, you can still access this file under the archive tab.</p>
+                                                    <a type="button" class="badge badge-sm bg-danger" data-bs-toggle="modal" data-bs-target="#myModal">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal -->
                                     {% endfor %}
                                 </tbody>
                             {% endif %}
@@ -358,6 +364,7 @@
                 </div>
             </div>
         </div>
+
         <!-- / Content Row -->
         <footer class="footer pt-3  ">
             <div class="container-fluid">

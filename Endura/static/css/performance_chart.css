@@ -1,0 +1,16 @@
+.legend {
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+  }
+  
+  .legend--this {
+    background-color: #5555FF;
+  }
+  
+  .legend--prev {
+    background-color: #FF55B8;
+  }

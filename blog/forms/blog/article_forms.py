@@ -38,13 +38,20 @@ class ArticleCreateForm(forms.ModelForm):
         )
 
         model = Article
-        fields = ["title", "category", "image", "image_credit", "body", "tags", "status"]
+        fields = ["title", "heading", "category", "image", "image_credit", "body", "tags", "status"]
         widgets = {
             'title': TextInput(attrs={
                                      'name': "article-title",
                                      'class': "form-control",
                                      'placeholder': "Enter Article Title",
                                      'id': "articleTitle"
+                                     }),
+
+            'heading': TextInput(attrs={
+                                     'name': "article-heading",
+                                     'class': "form-control",
+                                     'placeholder': "Enter Article Heading",
+                                     'id': "articleHeading"
                                      }),
 
             'image': FileInput(attrs={
@@ -73,7 +80,7 @@ class ArticleCreateForm(forms.ModelForm):
             'tags': TextInput(attrs={
                                      'name': "tags",
                                      'class': "form-control",
-                                     'placeholder': "Example: sports, game, politics",
+                                     'placeholder': "",
                                      'id': "tags",
                                      'data-role': "tagsinput"
                                      }),

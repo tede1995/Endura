@@ -34,7 +34,7 @@ class DashboardHomeView(LoginRequiredMixin, View):
             article.comments.count() for article in articles_list)
 
         recent_published_articles_list = articles_list.filter(
-            status=Article.PUBLISHED, deleted=False).order_by("-date_published")[:5]
+            status=Article.PUBLISHED, deleted=False).order_by("-date_published")[:]
 
         self.context['total_articles_written'] = total_articles_written
         self.context['total_articles_published'] = total_articles_published
