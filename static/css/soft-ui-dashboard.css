@@ -4404,6 +4404,8 @@ fieldset:disabled .btn {
 
 .dropdown-menu.show {
   display: block;
+  border-color: #00000024;
+  border-width: 0.05rem;
 }
 
 .dropdown-header {
@@ -4839,6 +4841,8 @@ fieldset:disabled .btn {
 
   .navbar-expand-sm .navbar-nav .dropdown-menu {
     position: absolute;
+    border-color: #00000024;
+    border-width: 0.05rem;
   }
 
   .navbar-expand-sm .navbar-nav .nav-link {
@@ -5570,7 +5574,7 @@ fieldset:disabled .btn {
   --bs-pagination-padding-x: 0.75rem;
   --bs-pagination-padding-y: 0.375rem;
   --bs-pagination-font-size: 1rem;
-  --bs-pagination-color: #cb0c9f;
+  --bs-pagination-color: #830866;
   --bs-pagination-bg: #fff;
   --bs-pagination-border-width: 1px;
   --bs-pagination-border-color: #dee2e6;
@@ -5582,8 +5586,8 @@ fieldset:disabled .btn {
   --bs-pagination-focus-bg: #e9ecef;
   --bs-pagination-focus-box-shadow: 0 0 0 0.2rem rgba(203, 12, 159, 0.25);
   --bs-pagination-active-color: #fff;
-  --bs-pagination-active-bg: #cb0c9f;
-  --bs-pagination-active-border-color: #cb0c9f;
+  --bs-pagination-active-bg: #830866;
+  --bs-pagination-active-border-color: #830866;
   --bs-pagination-disabled-color: #6c757d;
   --bs-pagination-disabled-bg: #fff;
   --bs-pagination-disabled-border-color: #dee2e6;
@@ -23770,7 +23774,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #8392AB;
   padding: 0;
   margin: 0 3px;
   border-radius: 50% !important;

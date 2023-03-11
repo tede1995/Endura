@@ -180,7 +180,7 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_CONFIGS = {
     'default':
         {'toolbar': 'full',
-         'width': 'auto',
+         'width': 'full',
          'extraPlugins': ','.join([
              'codesnippet',
              'youtube'
