@@ -48,19 +48,23 @@ class CategoryCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     fields = ["name", "image"]
     template_name = 'blog/category/category_form.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.filter(approved=True)
+        return context
+
     def form_valid(self, form):
         form.instance.save()
-        messages.success(self.request, f"'{form.instance.name}' "
+        messages.success(self.request, f"🎉 '{form.instance.name}' "
                                        f"submitted successfully. You will be "
-                                       f"notified when it is approved."
-                                       f"Thank you !!!")
-        return redirect('/')
+                                       f"notified when it is approved.")
+        return redirect('blog:category_create')
 
 
 class CategoryUpdateCreateView(LoginRequiredMixin, SuccessMessageMixin,
                                UpdateView):
     model = Category
     fields = ["name", "image"]
-    template_name = 'blog/category/category_form.html'
+    template_name = 'blog/category/category_form.html' 
     success_url = reverse_lazy("blog:categories_list")
     success_message = "Category Updated Successfully"
