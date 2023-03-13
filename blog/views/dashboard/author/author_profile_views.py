@@ -4,12 +4,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 # Blog app imports
 from blog.forms.dashboard.author.author_forms import (
     UserUpdateForm,
     ProfileUpdateForm,
 )
+
+#import article model
+from blog.models.article_models import Article
 
 
 class AuthorProfileView(LoginRequiredMixin, View):
@@ -22,7 +26,15 @@ class AuthorProfileView(LoginRequiredMixin, View):
     def get(self, request):
         author = User.objects.get(username=request.user)
 
+        # Get all articles written by the author
+        articles = Article.objects.filter(author=author)
+        
+        recent_published_articles_list = articles.filter(
+            status=Article.PUBLISHED, deleted=False).order_by("-date_published")[:]
+
         self.context_object['author_profile_details'] = author
+        self.context_object['articles'] = articles
+
         return render(request, self.template_name, self.context_object)
 
 
